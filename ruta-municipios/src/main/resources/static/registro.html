@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Crear cuenta · Ruta Entre Municipios</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body data-page="registro">
+<a class="skip" href="#contenido">Saltar al formulario</a>
+<div class="access">
+  <aside class="route-panel" aria-label="Progreso">
+    <a class="brand" href="/"><span class="brand-mark"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 16 10 4l5 12M7.2 11h5.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="brand-text">Ruta Entre Municipios</span></a>
+    <div>
+      <p class="eyebrow" style="color:oklch(78% 0.06 86)">Bus intermunicipal · Colombia</p>
+      <h1 class="display">Tu próximo viaje empieza con una cuenta.</h1>
+      <p class="lede">Regístrate una vez y reserva rutas entre municipios desde donde estés.</p>
+    </div>
+    <ol class="stops">
+        <li class="stop is-current" aria-current="step"><span class="stop-dot"></span><span class="stop-name">Crea tu cuenta</span><span class="stop-km">KM 0</span></li>
+        <li class="stop "><span class="stop-dot"></span><span class="stop-name">Inicia sesión</span><span class="stop-km">KM 12</span></li>
+        <li class="stop "><span class="stop-dot"></span><span class="stop-name">Fija tu origen</span><span class="stop-km">KM 27</span></li>
+    </ol>
+    <p class="route-foot"><span class="plate">REM·2026</span> Sin filas en la terminal</p>
+  </aside>
+  <main class="form-zone" id="contenido">
+    <section class="ticket" aria-labelledby="form-title">
+      <div class="ticket-stub"><span>TIQUETE <strong>Nº 0001</strong></span><span class="tag">Registro</span></div>
+      <div class="ticket-body">
+        <h2 class="title" id="form-title">Crear cuenta</h2>
+        <p class="lede">Te pediremos lo mínimo. Tu contraseña se guarda cifrada.</p>
+        <div class="notice notice-error" id="form-notice" role="alert" hidden><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 6.5v4.2M10 13.6h.01M8.6 2.9 1.9 14.6A1.6 1.6 0 0 0 3.3 17h13.4a1.6 1.6 0 0 0 1.4-2.4L11.4 2.9a1.6 1.6 0 0 0-2.8 0Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span></span></div>
+        <form class="form" id="register-form" novalidate>
+          <div class="field">
+            <label class="field-label" for="name">Nombre completo</label>
+            <input class="input" id="name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80" placeholder="Ej. Johan Hurtado" aria-describedby="name-error">
+            <p class="error-text" id="name-error" role="alert"></p>
+          </div>
+          <div class="field">
+            <label class="field-label" for="email">Correo electrónico</label>
+            <input class="input" id="email" name="email" type="email" inputmode="email" autocomplete="email" required maxlength="254" placeholder="nombre@correo.com" aria-describedby="email-error">
+            <p class="error-text" id="email-error" role="alert"></p>
+          </div>
+        <div class="field">
+          <label class="field-label" for="password">Contraseña</label>
+          <div class="control has-toggle">
+            <input class="input" id="password" name="password" type="password" autocomplete="new-password" required minlength="8" maxlength="128" aria-describedby="password-error password-rule">
+            <button class="toggle-pass" type="button" data-toggle="password" aria-controls="password" aria-pressed="false">Mostrar</button>
+          </div>
+          <p class="rule" id="password-rule" data-rule-for="password">Mínimo 8 caracteres</p>
+          <p class="error-text" id="password-error" role="alert"></p>
+        </div>
+          <button class="btn btn-primary btn-block" type="submit"><span class="btn-label">Crear cuenta</span><span class="arrow" aria-hidden="true">→</span></button>
+        </form>
+        <p class="form-foot">¿Ya tienes cuenta? <a href="/login">Inicia sesión</a></p>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="/js/api.js"></script>
+<script src="/js/auth.js"></script>
+</body>
+</html>

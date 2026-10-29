@@ -1,0 +1,63 @@
+
+▸ AuthenticationServiceTest
+  ✔ HU-02: cerrar sesión invalida el token
+  ✔ HU-02 éxito: cuenta recién creada inicia sesión y obtiene sesión válida
+  ✔ HU-02 inválido: contraseña errada y correo inexistente dan el MISMO error genérico
+  ✔ HU-02: sin sesión, sesión inventada o vencida no dan acceso
+
+▸ OriginServiceTest
+  ✔ HU-03 permiso concedido: coordenadas → municipio de origen guardado
+  ✔ HU-03: si no se identifica el municipio, se pide escribirlo
+  ✔ HU-03 permiso rechazado: origen escrito a mano; vacío se rechaza
+
+▸ PasswordRecoveryServiceTest
+  ✔ HU-07 éxito: llega el correo, se cambia la clave y la ANTERIOR deja de funcionar
+  ✔ HU-07 límite: a los 29:59 funciona; a los 30:00 el enlace está vencido
+  ✔ HU-07: el enlace es de un solo uso y solo vale el último solicitado
+  ✔ HU-07: correo inexistente no envía nada ni revela si existe
+  ✔ HU-07: la nueva contraseña también exige 8 caracteres
+
+▸ RegisterUserServiceTest
+  ✔ HU-01 éxito: registra y guarda la contraseña protegida (nunca en texto plano)
+  ✔ HU-01 inválido: correo con formato incorrecto
+  ✔ HU-01 límite: contraseña de 7 caracteres
+  ✔ HU-01 duplicado: mismo correo aunque cambien mayúsculas
+
+▸ EmailTest
+  ✔ HU-01: normaliza mayúsculas y espacios
+  ✔ HU-01: rechaza formatos inválidos
+  ✔ HU-01: acepta formatos válidos comunes
+
+▸ OriginTest
+  ✔ HU-03: origen manual vacío o muy corto se rechaza
+  ✔ HU-03: coordenadas GPS fuera de rango se rechazan
+
+▸ PasswordPolicyTest
+  ✔ HU-01 límite: 7 caracteres se rechaza, 8 se acepta
+  ✔ HU-01: contraseña nula o solo espacios se rechaza
+
+▸ ApiIntegrationTest
+  ✔ Integración HU-01/02/03/07 con el mismo backend y la misma cuenta
+  ✔ Seguridad: POST sin JSON se rechaza (defensa CSRF) y path traversal da 404
+
+▸ JsonFileUserRepositoryTest
+  ✔ HU-01 persistencia: tras 'reiniciar' (nueva instancia) la cuenta sigue existiendo
+
+▸ JsonTest
+  ✔ JSON mal formado lanza IllegalArgumentException
+  ✔ Ida y vuelta con tildes, comillas, números y anidación
+
+▸ NearestKnownMunicipalityGeocoderTest
+  ✔ Respaldo sin internet: coordenadas cercanas a Tuluá devuelven Tuluá
+  ✔ En medio del océano no inventa un municipio
+
+▸ Pbkdf2PasswordHasherTest
+  ✔ Misma contraseña produce hashes distintos (sal aleatoria) y ambos verifican
+  ✔ Hash corrupto o nulo nunca verifica
+
+▸ GoogleReverseGeocoderTest
+  ✔ HU-03 Google: extrae municipio y departamento de la respuesta
+  ✔ HU-03 Google: zona rural usa el municipio administrativo
+  ✔ HU-03 Google: clave rechazada devuelve vacío para usar el siguiente geocodificador
+
+Pruebas: 35  OK: 35  Fallidas: 0

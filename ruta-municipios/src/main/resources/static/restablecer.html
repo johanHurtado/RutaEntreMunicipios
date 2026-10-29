@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Nueva contraseña · Ruta Entre Municipios</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body data-page="restablecer">
+<a class="skip" href="#contenido">Saltar al formulario</a>
+<div class="access">
+  <aside class="route-panel" aria-label="Progreso">
+    <a class="brand" href="/"><span class="brand-mark"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 16 10 4l5 12M7.2 11h5.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="brand-text">Ruta Entre Municipios</span></a>
+    <div>
+      <p class="eyebrow" style="color:oklch(78% 0.06 86)">Bus intermunicipal · Colombia</p>
+      <h1 class="display">Último tramo: elige tu nueva clave.</h1>
+      <p class="lede">Al guardarla, la contraseña anterior deja de funcionar y se cierran las sesiones abiertas.</p>
+    </div>
+    <ol class="stops">
+        <li class="stop is-done"><span class="stop-dot"></span><span class="stop-name">Pide el enlace</span><span class="stop-km">PASO 1</span></li>
+        <li class="stop is-done"><span class="stop-dot"></span><span class="stop-name">Abre tu correo</span><span class="stop-km">PASO 2</span></li>
+        <li class="stop is-current" aria-current="step"><span class="stop-dot"></span><span class="stop-name">Nueva contraseña</span><span class="stop-km">PASO 3</span></li>
+    </ol>
+    <p class="route-foot"><span class="plate">REM·2026</span> Sin filas en la terminal</p>
+  </aside>
+  <main class="form-zone" id="contenido">
+    <section class="ticket" aria-labelledby="form-title">
+      <div class="ticket-stub"><span>DESVÍO <strong>Nº 07</strong></span><span class="tag">Nueva clave</span></div>
+      <div class="ticket-body">
+        <div id="checking" role="status"><p class="lede" style="margin:0">Verificando el enlace…</p></div>
+        <div id="expired-step" hidden tabindex="-1">
+          <div class="state-icon warn"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 6.5v4.2M10 13.6h.01M8.6 2.9 1.9 14.6A1.6 1.6 0 0 0 3.3 17h13.4a1.6 1.6 0 0 0 1.4-2.4L11.4 2.9a1.6 1.6 0 0 0-2.8 0Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h2 class="title">Este enlace ya no sirve</h2>
+          <p class="lede">Venció (dura 30 minutos), ya se usó o pediste uno más reciente. Pide otro y úsalo pronto.</p>
+          <div class="form"><a class="btn btn-primary btn-block" href="/recuperar"><span class="btn-label">Pedir un enlace nuevo</span><span class="arrow" aria-hidden="true">→</span></a></div>
+        </div>
+        <div id="reset-step" hidden>
+          <h2 class="title" id="form-title">Nueva contraseña</h2>
+          <p class="lede">Usa al menos 8 caracteres. Evita repetir la anterior.</p>
+          <div class="notice notice-error" id="form-notice" role="alert" hidden><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 6.5v4.2M10 13.6h.01M8.6 2.9 1.9 14.6A1.6 1.6 0 0 0 3.3 17h13.4a1.6 1.6 0 0 0 1.4-2.4L11.4 2.9a1.6 1.6 0 0 0-2.8 0Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span></span></div>
+          <form class="form" id="reset-form" novalidate>
+        <div class="field">
+          <label class="field-label" for="password">Nueva contraseña</label>
+          <div class="control has-toggle">
+            <input class="input" id="password" name="password" type="password" autocomplete="new-password" required minlength="8" maxlength="128" aria-describedby="password-error password-rule">
+            <button class="toggle-pass" type="button" data-toggle="password" aria-controls="password" aria-pressed="false">Mostrar</button>
+          </div>
+          <p class="rule" id="password-rule" data-rule-for="password">Mínimo 8 caracteres</p>
+          <p class="error-text" id="password-error" role="alert"></p>
+        </div>
+        <div class="field">
+          <label class="field-label" for="confirm">Repite la contraseña</label>
+          <div class="control has-toggle">
+            <input class="input" id="confirm" name="confirm" type="password" autocomplete="new-password" required minlength="1" maxlength="128" aria-describedby="confirm-error">
+            <button class="toggle-pass" type="button" data-toggle="confirm" aria-controls="confirm" aria-pressed="false">Mostrar</button>
+          </div>
+          <p class="error-text" id="confirm-error" role="alert"></p>
+        </div>
+            <button class="btn btn-primary btn-block" type="submit"><span class="btn-label">Guardar contraseña</span><span class="arrow" aria-hidden="true">→</span></button>
+          </form>
+        </div>
+        <p class="form-foot"><a href="/login">Volver a iniciar sesión</a></p>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="/js/api.js"></script>
+<script src="/js/auth.js"></script>
+</body>
+</html>

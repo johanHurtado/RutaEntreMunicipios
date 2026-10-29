@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Recuperar contraseña · Ruta Entre Municipios</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body data-page="recuperar">
+<a class="skip" href="#contenido">Saltar al formulario</a>
+<div class="access">
+  <aside class="route-panel" aria-label="Progreso">
+    <a class="brand" href="/"><span class="brand-mark"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 16 10 4l5 12M7.2 11h5.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="brand-text">Ruta Entre Municipios</span></a>
+    <div>
+      <p class="eyebrow" style="color:oklch(78% 0.06 86)">Bus intermunicipal · Colombia</p>
+      <h1 class="display">Se te olvidó la clave. Pasa.</h1>
+      <p class="lede">Te enviamos un enlace al correo. Vence en 30 minutos y sirve una sola vez.</p>
+    </div>
+    <ol class="stops">
+        <li class="stop is-current" aria-current="step"><span class="stop-dot"></span><span class="stop-name">Pide el enlace</span><span class="stop-km">PASO 1</span></li>
+        <li class="stop "><span class="stop-dot"></span><span class="stop-name">Abre tu correo</span><span class="stop-km">PASO 2</span></li>
+        <li class="stop "><span class="stop-dot"></span><span class="stop-name">Nueva contraseña</span><span class="stop-km">PASO 3</span></li>
+    </ol>
+    <p class="route-foot"><span class="plate">REM·2026</span> Sin filas en la terminal</p>
+  </aside>
+  <main class="form-zone" id="contenido">
+    <section class="ticket" aria-labelledby="form-title">
+      <div class="ticket-stub"><span>DESVÍO <strong>Nº 07</strong></span><span class="tag">Recuperación</span></div>
+      <div class="ticket-body">
+        <div id="request-step">
+          <h2 class="title" id="form-title">Recuperar contraseña</h2>
+          <p class="lede">Escribe el correo de tu cuenta y te enviaremos un enlace para crear una nueva.</p>
+          <div class="notice notice-error" id="form-notice" role="alert" hidden><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 6.5v4.2M10 13.6h.01M8.6 2.9 1.9 14.6A1.6 1.6 0 0 0 3.3 17h13.4a1.6 1.6 0 0 0 1.4-2.4L11.4 2.9a1.6 1.6 0 0 0-2.8 0Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span></span></div>
+          <form class="form" id="recover-form" novalidate>
+            <div class="field">
+              <label class="field-label" for="email">Correo electrónico</label>
+              <input class="input" id="email" name="email" type="email" inputmode="email" autocomplete="email" required maxlength="254" placeholder="nombre@correo.com" aria-describedby="email-error">
+              <p class="error-text" id="email-error" role="alert"></p>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit"><span class="btn-label">Enviar enlace</span><span class="arrow" aria-hidden="true">→</span></button>
+          </form>
+        </div>
+        <div id="sent-step" hidden tabindex="-1">
+          <div class="state-icon ok"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.7"/><path d="m6.6 10.2 2.3 2.3 4.6-4.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h2 class="title">Revisa tu correo</h2>
+          <p class="lede" id="sent-message"></p>
+          <div class="notice notice-info" id="dev-mailbox" hidden><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.7"/><path d="M10 9v4.6M10 6.4h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Modo prueba: el correo está en la <a href="/dev/correos" target="_blank" rel="noopener">bandeja de prueba</a>.</span></div>
+          <div class="form">
+            <button class="btn btn-ghost btn-block" type="button" id="resend">Enviar de nuevo</button>
+          </div>
+        </div>
+        <p class="form-foot">¿La recordaste? <a href="/login">Volver a iniciar sesión</a></p>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="/js/api.js"></script>
+<script src="/js/auth.js"></script>
+</body>
+</html>

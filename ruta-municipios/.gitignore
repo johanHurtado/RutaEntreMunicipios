@@ -1,0 +1,10 @@
+out/
+out-test/
+target/
+data/
+*.class
+.idea/
+*.iml
+.vscode/
+sources.txt
+config.properties

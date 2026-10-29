@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Inicio · Ruta Entre Municipios</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
+</head>
+<body data-page="inicio">
+<a class="skip" href="#trip-title">Saltar al panel de viaje</a>
+<div class="app">
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 16 10 4l5 12M7.2 11h5.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="brand-text">Ruta Entre Municipios</span></a>
+    <div class="topbar-user">
+      <span class="avatar" id="avatar" aria-hidden="true">··</span>
+      <span class="user-meta"><span class="user-name" id="user-name">Cargando…</span><span class="user-mail" id="user-mail"></span></span>
+      <button class="btn btn-topbar" type="button" id="logout">Cerrar sesión</button>
+    </div>
+  </header>
+  <div class="workspace">
+    <main class="trip-panel" aria-labelledby="trip-title">
+      <div>
+        <p class="eyebrow">Planea tu viaje</p>
+        <h1 class="title" id="trip-title">¿Desde dónde sales?</h1>
+        <p class="lede">Detectamos tu municipio con la ubicación del navegador. Si prefieres, escríbelo o toca el mapa.</p>
+      </div>
+
+      <div class="notice notice-warn" id="geo-notice" role="status" hidden><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 6.5v4.2M10 13.6h.01M8.6 2.9 1.9 14.6A1.6 1.6 0 0 0 3.3 17h13.4a1.6 1.6 0 0 0 1.4-2.4L11.4 2.9a1.6 1.6 0 0 0-2.8 0Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span></span></div>
+
+      <section aria-label="Tramo del viaje">
+        <form class="leg leg-origin" id="origin-form" novalidate>
+          <div class="leg-rail"><span class="leg-pin"></span><span class="leg-line"></span></div>
+          <div class="leg-body">
+            <label class="field-label" for="origin">Municipio de origen</label>
+            <div class="row">
+              <input class="input" id="origin" name="origin" type="text" list="municipios" autocomplete="address-level2" maxlength="120" placeholder="Ej. Tuluá, Valle del Cauca" aria-describedby="origin-status origin-error">
+              <button class="btn btn-icon" type="button" id="locate" title="Usar mi ubicación" aria-label="Usar mi ubicación"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M10 1.8v2.6M10 15.6v2.6M1.8 10h2.6M15.6 10h2.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="10" cy="10" r="6.2" stroke="currentColor" stroke-width="1.8"/></svg></button>
+            </div>
+            <p class="origin-status" id="origin-status" aria-live="polite"></p>
+            <p class="error-text" id="origin-error" role="alert"></p>
+            <button class="link-btn" type="submit" id="save-origin" hidden>Guardar este origen</button>
+          </div>
+        </form>
+
+        <div class="leg leg-dest">
+          <div class="leg-rail"><span class="leg-pin"></span></div>
+          <div class="leg-body">
+            <label class="field-label" for="destination">Municipio de destino</label>
+            <input class="input" id="destination" name="destination" type="text" list="municipios" maxlength="120" placeholder="¿A dónde vas?" aria-describedby="dest-hint">
+            <p class="hint" id="dest-hint">Debe ser distinto al origen.</p>
+          </div>
+        </div>
+      </section>
+
+      <button class="btn btn-signal btn-block" type="button" id="search-trip" disabled><span class="btn-label">Buscar viaje</span><span class="arrow" aria-hidden="true">→</span></button>
+
+      <p class="panel-foot">Ubicación aproximada según el mapa. Tu origen se guarda en tu cuenta y lo verás la próxima vez que entres.</p>
+    </main>
+
+    <div class="map-wrap">
+      <div id="map" role="application" aria-label="Mapa interactivo. Toca un punto para fijarlo como origen."></div>
+      <p class="map-coords mono" id="map-coords" aria-live="polite"></p>
+      <p class="map-provider mono" id="map-provider"></p>
+      <p class="map-hint" id="map-hint"><span class="hint-dot" aria-hidden="true"></span>Toca el mapa para elegir el punto de salida</p>
+    </div>
+  </div>
+</div>
+<datalist id="municipios"></datalist>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/vendor/leaflet/leaflet.js"></script>
+<script src="/js/api.js"></script>
+<script src="/js/map-provider.js"></script>
+<script src="/js/inicio.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Copia este archivo como "config.properties" (en esta misma carpeta) y llena los valores.
+# config.properties NO se sube al repositorio (.gitignore) porque contiene claves.
+
+# --- Google Maps (HU-03) ---------------------------------------------------
+# Clave de Google Cloud con "Maps JavaScript API" habilitada.
+# Si se deja vacía, el mapa usa Leaflet + OpenStreetMap automáticamente.
+GOOGLE_MAPS_API_KEY=
+# Map ID para marcadores avanzados. DEMO_MAP_ID sirve para pruebas.
+GOOGLE_MAP_ID=DEMO_MAP_ID
+# Opcional: clave SIN restricción de sitio web, con "Geocoding API" habilitada,
+# para que el servidor convierta coordenadas en municipio con Google.
+# Si se deja vacía se usa la misma de arriba; si Google la rechaza, se usa OpenStreetMap.
+GOOGLE_GEOCODING_API_KEY=
+
+# --- Correo real (HU-07), opcional ------------------------------------------
+SMTP_HOST=
+SMTP_PORT=465
+SMTP_USER=
+SMTP_PASSWORD=
